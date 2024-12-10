@@ -7,11 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1P8u_m2LFtLL_adycTmCcV80EQodmdRZL
 """
 
-!pip install unstructured
-!pip install sentence-transformers pinecone-client
-!pip install newsapi-python
-
-
 from newsapi import NewsApiClient
 
 # Initialize the NewsAPI client with your API key
@@ -24,7 +19,6 @@ headlines = newsapi.get_top_headlines(language='en')
 for article in headlines['articles']:
     print(article['title'], article['description'])
 
-!pip install "unstructured[pdf]"
 from unstructured.partition.auto import partition
 
 # Specify the path to your PDF
@@ -62,8 +56,6 @@ print(data)  # Use it
 # Assuming 'data' is a list of text extracted from the PDF
 embeddings = model.encode(data)
 
-!pip install pinecone-client
-!pip install sentence-transformers
 import pinecone
 from pinecone import Pinecone
 from pinecone import Pinecone, ServerlessSpec
@@ -103,8 +95,6 @@ if index_name not in pc.list_indexes().names():
 
 # Now access the index (it will be created or exist already)
 index = pc.Index(index_name)
-
-!pip install --upgrade pinecone-client
 
 from pinecone import PineconeApiException
 
@@ -149,7 +139,6 @@ vectors = [(str(i), embedding) for i, embedding in enumerate(embeddings)]
 index.upsert(vectors)
 print("Upsert completed successfully!")
 
-!pip install tavily-python
 from tavily import TavilyClient
 
 # Initialize the TavilyClient with your API key
@@ -386,7 +375,6 @@ query = "Who invented the telephone?"
 response = rag_workflow(query)
 print("Final Response:", response)
 
-!pip install gradio transformers huggingface_hub
 
 import gradio as gr
 from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
