@@ -1,5 +1,0 @@
-gradio 
-transformers 
-torch 
-nltk 
-huggingface_hub

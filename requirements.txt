@@ -1,0 +1,7 @@
+unstructured
+sentence-transformers
+pinecone-client
+newsapi-python
+gradio
+transformers
+torch
